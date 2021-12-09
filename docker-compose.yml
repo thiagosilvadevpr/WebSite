@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: unless-stopped
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./www:/var/www
+    ports:
+      - "8000:80"
+    networks:
+      - app-network
+
+  php-fpm:
+    image: php-fpm
+    container_name: php-fpm
+    restart: unless-stopped
+    build:
+      args:
+        user: admin
+        uid: 1000
+      context: ./docker/php-fpm
+      dockerfile: Dockerfile
+    volumes:
+      - ./www:/var/www
+    networks:
+      - app-network
+
+networks:
+    app-network:
+        driver: bridge

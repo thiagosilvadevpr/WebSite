@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+        "editor.formatOnSave": true,
+
+        "explorer.compactFolders": false,
+
+        "git.confirmSync": false,
+        "git.suggestSmartCommit": false,
+        "git.ignoreLimitWarning": true
+    }
+}
